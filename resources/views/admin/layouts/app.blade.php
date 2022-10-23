@@ -174,6 +174,11 @@
 <!-- AdminLTE App -->
 <script src="{{asset('includes/dist/js/adminlte.js')}}"></script>
 @livewireScripts
+@if(session()->has('success'))
+    <script>
+        toastr.success('{{ session('success') }}');
+    </script>
+@endif
 <script>
     Livewire.on('toast', ({type, message}) => {
         toastr[type](message)
