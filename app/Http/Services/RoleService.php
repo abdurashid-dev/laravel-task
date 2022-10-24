@@ -11,7 +11,7 @@ class RoleService
         return Role::orderByDesc('created_at')->paginate(10);
     }
 
-    public function store(array $data)
+    public function store(array $data): void
     {
         Role::create($data);
     }
