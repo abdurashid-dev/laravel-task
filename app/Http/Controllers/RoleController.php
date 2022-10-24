@@ -20,4 +20,9 @@ class RoleController extends Controller
         $roles = $this->service->index();
         return view('admin.roles.index', compact('roles'));
     }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
 }

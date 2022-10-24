@@ -6,8 +6,10 @@
     <x-header title="Roles" icon="fas fa-user-lock"/>
     <div class="card">
         <div class="card-header">
-            <a href="{{route('admin.roles.create')}}" class="btn btn-primary float-right"><i class="fas fa-plus"></i>
-                Add new</a>
+            <button class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#createRoleModal"><i
+                    class="fas fa-plus"></i>
+                Add new
+            </button>
         </div>
         <div class="card-body table-responsive">
             <table class="table table-bordered">
@@ -31,4 +33,5 @@
             {{$roles->links()}}
         </div>
     </div>
+    @include('admin.roles.create')
 @endsection
