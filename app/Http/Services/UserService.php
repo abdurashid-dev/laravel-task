@@ -8,7 +8,7 @@ class UserService
 {
     public function index()
     {
-        return User::where('id', auth()->user()->id)->orderByDesc('created_at')->paginate();
+        return User::whereNot('id', auth()->user()->id)->orderByDesc('created_at')->paginate();
     }
 
     public function show($id)
