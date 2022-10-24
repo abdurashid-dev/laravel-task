@@ -32,7 +32,7 @@
                         <td>{{(($roles->currentpage()-1)*$roles->perpage()+($loop->index+1))}}</td>
                         <td class="w-25">{{$role->name}}</td>
                         <td class="w-50">
-                            <a href="#" class="btn btn-primary">Permissions</a>
+                            <a href="{{route('admin.roles.edit-permissions', $role)}}" class="btn btn-primary">Permissions</a>
                             <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-success">Edit</a>
                             <form action="{{route('admin.roles.destroy', $role)}}" class="d-inline-block"
                                   method="POST">

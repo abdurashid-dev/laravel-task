@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleService
@@ -16,12 +17,6 @@ class RoleService
         Role::create($data);
     }
 
-    public function destroy($id): void
-    {
-        $role = Role::findOrFail($id);
-        $role->delete();
-    }
-
     public function edit($id)
     {
         return Role::findOrFail($id);
@@ -31,5 +26,18 @@ class RoleService
     {
         $role = $this->edit($id);
         $role->update($data);
+    }
+
+    public function destroy($id): void
+    {
+        $role = Role::findOrFail($id);
+        $role->delete();
+    }
+
+    public function permissionEdit($id)
+    {
+        $role = $this->edit($id);
+        $permissions = Permission::all();
+        return [$role, $permissions];
     }
 }
