@@ -40,4 +40,10 @@ class RoleService
         $permissions = Permission::with(['roles' => fn($q) => $q->select('roles.id')])->get();
         return [$role, $permissions];
     }
+
+    public function syncPermissions(array $data, $id)
+    {
+        $role = $this->edit($id);
+        $role->syncPermissions($data);
+    }
 }

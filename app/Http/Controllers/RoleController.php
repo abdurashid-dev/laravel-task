@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GivePermissionRequest;
 use App\Http\Requests\RoleRequest;
 use App\Http\Services\RoleService;
 
@@ -49,5 +50,11 @@ class RoleController extends Controller
     {
         [$role, $permissions] = $this->service->givePermissions($id);
         return view('admin.roles.givePermissions', compact('role', 'permissions'));
+    }
+
+    public function syncPermissions(GivePermissionRequest $request, $role)
+    {
+        $this->service->syncPermissions($request->validated(), $role);
+        return redirect()->route('admin.roles.index')->with('success', 'Permissions attached!');
     }
 }
