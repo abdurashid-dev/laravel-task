@@ -3,6 +3,7 @@
 namespace App\Http\Services;
 
 use App\Models\User;
+use Hash;
 
 class UserService
 {
@@ -23,7 +24,11 @@ class UserService
 
     public function store(array $data)
     {
-        User::create($data);
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+        ]);
     }
 
     public function update(array $data, $id)
