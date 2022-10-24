@@ -20,7 +20,7 @@ class UserService
 
     public function create()
     {
-        $roles = Role::all();
+        $roles = Role::with('users')->get();
         $user = new User();
         return [$user, $roles];
     }
@@ -33,6 +33,13 @@ class UserService
             'password' => Hash::make($data['password'])
         ]);
         $user->assignRole($data['roles']);
+    }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        $roles = Role::all();
+        return [$user, $roles];
     }
 
     public function update(array $data, $id)

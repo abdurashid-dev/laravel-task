@@ -28,7 +28,8 @@
                     data-placeholder="Select a State" data-dropdown-css-class="select2-purple" style="width: 100%;"
                     data-select2-id="15" tabindex="-1" aria-hidden="true">
                 @foreach($roles as $role)
-                    <option value="{{$role->id}}">{{$role->name}}</option>
+                    <option value="{{$role->id}}"
+                            @if($role->id == $user->id) selected @endif>{{$role->name}}</option>
                 @endforeach
             </select>
         </div>

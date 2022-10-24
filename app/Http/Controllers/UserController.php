@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdatePasswordRequest;
 use App\Http\Requests\UserUpdateRequest;
@@ -32,6 +31,7 @@ class UserController extends Controller
     public function create()
     {
         [$user, $roles] = $this->service->create();
+//        dd($roles[0]['users']);
         return view('admin.users.create', compact('user', 'roles'));
     }
 
@@ -43,8 +43,9 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        $user = $this->service->show($id);
-        return view('admin.users.edit', compact('user'));
+        [$user, $roles] = $this->service->edit($id);
+        dd($roles->user);
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     public function update(UserUpdateRequest $request, $id)
