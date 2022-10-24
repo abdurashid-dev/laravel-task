@@ -30,7 +30,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="./index3.html" class="nav-link">
+            <a href="{{route('admin.permissions.index')}}"
+               class="nav-link {{request()->is('admin/permissions*') ? 'active':''}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Permissions</p>
             </a>
