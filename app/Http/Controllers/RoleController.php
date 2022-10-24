@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Services\RoleService;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -10,12 +11,13 @@ class RoleController extends Controller
 
     public function __construct()
     {
-        $this->service =
+        $this->service = new RoleService();
         $this->middleware('permission:roles-list')->only('index');
     }
 
     public function index()
     {
-
+        $roles = $this->service->index();
+        dd($roles);
     }
 }
