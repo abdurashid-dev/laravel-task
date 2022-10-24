@@ -26,7 +26,8 @@
                         <td class="w-25">{{$user->email}}</td>
                         <td class="w-50">
                             <a href="#" class="btn btn-primary">Assign role</a>
-                            <a href="#" class="btn btn-warning">Change password</a>
+                            <a href="{{route('admin.users.change-password', $user)}}" class="btn btn-warning">Change
+                                password</a>
                             <a href="{{route('admin.users.edit', $user)}}" class="btn btn-success">Edit</a>
                             <form action="{{route('admin.users.destroy', $user)}}" class="d-inline-block"
                                   method="POST">

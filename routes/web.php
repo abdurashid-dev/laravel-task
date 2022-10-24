@@ -52,4 +52,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('/permissions', PermissionController::class);
 //Users
     Route::resource('/users', UserController::class);
+    Route::get('/users/change-password/{user}', [UserController::class, 'changePassword'])->name('users.change-password');
+    Route::post('/users/change-password/{user}', [UserController::class, 'updatePassword'])->name('users.update-password');
 });

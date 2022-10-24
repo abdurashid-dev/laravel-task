@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdatePasswordRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Http\Services\UserService;
 
@@ -56,5 +57,17 @@ class UserController extends Controller
     {
         $this->service->destroy($id);
         return redirect()->route('admin.users.index')->with('success', 'User deleted!');
+    }
+
+    public function changePassword($id)
+    {
+        $user = $this->service->show($id);
+        return view('admin.users.change-password', compact('user'));
+    }
+
+    public function updatePassword(UserUpdatePasswordRequest $request, $id)
+    {
+        $this->service->updatePassword($request->validated(), $id);
+        return redirect()->route('admin.users.index')->with('success', 'Password changed');
     }
 }

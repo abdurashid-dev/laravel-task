@@ -42,4 +42,12 @@ class UserService
         $user = $this->show($id);
         $user->delete();
     }
+
+    public function updatePassword(array $data, $id)
+    {
+        $user = $this->show($id);
+        $user->update([
+            'password' => Hash::make($data['password'])
+        ]);
+    }
 }
