@@ -43,7 +43,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="3">No roles found :(</td>
+                        <td colspan="3">No permissions found :(</td>
                     </tr>
                 @endforelse
             </table>

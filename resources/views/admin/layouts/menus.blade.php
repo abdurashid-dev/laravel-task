@@ -17,7 +17,8 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="./index.html" class="nav-link">
+            <a href="{{route('admin.users.index')}}"
+               class="nav-link {{(request()->is('admin/user*') ) ? 'active':''}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Users</p>
             </a>

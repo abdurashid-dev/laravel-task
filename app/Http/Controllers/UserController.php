@@ -23,7 +23,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = $this->service->show($id);
-        return view('admin.user.show', compact('user'));
+        return view('admin.users.show', compact('user'));
     }
 
     public function create()
@@ -41,7 +41,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = $this->service->show($id);
-        return view('admin.user.edit', compact('user'));
+        return view('admin.users.edit', compact('user'));
     }
 
     public function update(UserRequest $request, $id)
@@ -53,6 +53,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $this->service->destroy($id);
-        return redirect()->route('admin.user.destroy')->with('success', 'User deleted!');
+        return redirect()->route('admin.users.index')->with('success', 'User deleted!');
     }
 }
