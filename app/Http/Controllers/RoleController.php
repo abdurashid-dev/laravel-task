@@ -45,9 +45,9 @@ class RoleController extends Controller
         return redirect()->route('admin.roles.index')->with('success', 'Role deleted!');
     }
 
-    public function permissionEdit($id)
+    public function givePermissions($id)
     {
-        $role = $this->service->permissionEdit($id);
-        return view('admin.roles.permission', compact('role'));
+        [$role, $permissions] = $this->service->givePermissions($id);
+        return view('admin.roles.givePermissions', compact('role', 'permissions'));
     }
 }

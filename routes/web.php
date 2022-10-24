@@ -43,5 +43,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::get('/password/index', [AdminController::class, 'password'])->name('profile.password');
     Route::post('/password/index', [AdminController::class, 'passwordChange'])->name('password.change.index');
     Route::resource('/roles', RoleController::class);
-    Route::get('/roles/edit-permissions/{role}', [RoleController::class, 'permissionEdit'])->name('roles.edit-permissions');
+    Route::get('/roles/edit-permissions/{role}', [RoleController::class, 'givePermissions'])->name('roles.give-permissions');
 });

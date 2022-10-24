@@ -34,10 +34,10 @@ class RoleService
         $role->delete();
     }
 
-    public function permissionEdit($id)
+    public function givePermissions($id)
     {
         $role = $this->edit($id);
-        $permissions = Permission::all();
+        $permissions = Permission::with(['roles' => fn($q) => $q->select('roles.id')])->get();
         return [$role, $permissions];
     }
 }

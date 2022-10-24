@@ -3,7 +3,8 @@
     Roles
 @endsection
 @section('content')
-    <x-headers title="Roles" icon="fas fa-pencil-alt" parent-route="admin.roles.index" parent-icon="fas fa-user-lock" parent="Roles"/>
+    <x-headers title="Roles" icon="fas fa-pencil-alt" parent-route="admin.roles.index" parent-icon="fas fa-user-lock"
+               parent="Roles"/>
     <div class="card">
         <div class="card-header">
         </div>
