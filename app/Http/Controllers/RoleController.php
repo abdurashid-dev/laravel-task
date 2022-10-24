@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RoleRequest;
 use App\Http\Services\RoleService;
-use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
@@ -26,5 +25,11 @@ class RoleController extends Controller
     {
         $this->service->store($request->validated());
         return redirect()->route('admin.roles.index')->with('success', 'New role added!');
+    }
+
+    public function destroy($id)
+    {
+        $this->service->destroy($id);
+        return redirect()->route('admin.roles.index')->with('success', 'Role deleted!');
     }
 }

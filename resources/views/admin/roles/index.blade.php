@@ -30,8 +30,17 @@
                 @forelse($roles as $role)
                     <tr>
                         <td>{{(($roles->currentpage()-1)*$roles->perpage()+($loop->index+1))}}</td>
-                        <td>{{$role->name}}</td>
-                        <td>Action</td>
+                        <td class="w-25">{{$role->name}}</td>
+                        <td class="w-50">
+                            <a href="#" class="btn btn-primary">Give permissions</a>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <form action="{{route('admin.roles.destroy', $role->id)}}" class="d-inline-block"
+                                  method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="delete-btn btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>
@@ -45,4 +54,7 @@
         </div>
     </div>
     @include('admin.roles.create')
+@endsection
+@section('scripts')
+    @include('partials.sweet-alert')
 @endsection

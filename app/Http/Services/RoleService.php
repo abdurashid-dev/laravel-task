@@ -15,4 +15,10 @@ class RoleService
     {
         Role::create($data);
     }
+
+    public function destroy($id): void
+    {
+        $role = Role::findOrFail($id);
+        $role->delete();
+    }
 }
