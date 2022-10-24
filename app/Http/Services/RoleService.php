@@ -8,6 +8,11 @@ class RoleService
 {
     public function index()
     {
-        return Role::paginate(10);
+        return Role::orderByDesc('created_at')->paginate(10);
+    }
+
+    public function store(array $data)
+    {
+        Role::create($data);
     }
 }

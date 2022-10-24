@@ -4,6 +4,15 @@
 @endsection
 @section('content')
     <x-header title="Roles" icon="fas fa-user-lock"/>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             <button class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#createRoleModal"><i
@@ -30,7 +39,9 @@
                     </tr>
                 @endforelse
             </table>
-            {{$roles->links()}}
+            <div class="mt-3 float-right">
+                {{$roles->links()}}
+            </div>
         </div>
     </div>
     @include('admin.roles.create')

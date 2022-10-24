@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RoleRequest;
 use App\Http\Services\RoleService;
 use Illuminate\Http\Request;
 
@@ -21,8 +22,9 @@ class RoleController extends Controller
         return view('admin.roles.index', compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        dd($request->all());
+        $this->service->store($request->validated());
+        return redirect()->route('admin.roles.index')->with('success', 'New role added!');
     }
 }
