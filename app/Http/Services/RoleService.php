@@ -21,4 +21,15 @@ class RoleService
         $role = Role::findOrFail($id);
         $role->delete();
     }
+
+    public function edit($id)
+    {
+        return Role::findOrFail($id);
+    }
+
+    public function update(array $data, $id): void
+    {
+        $role = $this->edit($id);
+        $role->update($data);
+    }
 }

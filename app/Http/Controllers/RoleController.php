@@ -32,4 +32,16 @@ class RoleController extends Controller
         $this->service->destroy($id);
         return redirect()->route('admin.roles.index')->with('success', 'Role deleted!');
     }
+
+    public function edit($id)
+    {
+        $role = $this->service->edit($id);
+        return view('admin.roles.edit', compact('role'));
+    }
+
+    public function update(RoleRequest $request, $id)
+    {
+        $this->service->update($request->validated(), $id);
+        return redirect()->route('admin.roles.index')->with('success', 'Role updated!');
+    }
 }

@@ -33,8 +33,8 @@
                         <td class="w-25">{{$role->name}}</td>
                         <td class="w-50">
                             <a href="#" class="btn btn-primary">Give permissions</a>
-                            <a href="#" class="btn btn-success">Edit</a>
-                            <form action="{{route('admin.roles.destroy', $role->id)}}" class="d-inline-block"
+                            <a href="{{route('admin.roles.edit', $role)}}" class="btn btn-success">Edit</a>
+                            <form action="{{route('admin.roles.destroy', $role)}}" class="d-inline-block"
                                   method="POST">
                                 @csrf
                                 @method('DELETE')

@@ -13,7 +13,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nameInput" class="form-label">Role name</label>
-                        <input type="text" class="form-control" id="nameInput" name="name" required>
+                        <input type="text" class="form-control" id="nameInput" name="name" required value="{{old('name')}}">
                         @error('name')
                         <span class="text-danger">{{$message}}</span>
                         @enderror
