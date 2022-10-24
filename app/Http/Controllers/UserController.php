@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Http\Services\UserService;
 
 class UserController extends Controller
@@ -32,7 +34,7 @@ class UserController extends Controller
         return view('admin.users.create', compact('user'));
     }
 
-    public function store(UserRequest $request)
+    public function store(UserStoreRequest $request)
     {
         $this->service->store($request->validated());
         return redirect()->route('admin.users.index')->with('success', 'New User added!');
@@ -44,7 +46,7 @@ class UserController extends Controller
         return view('admin.users.edit', compact('user'));
     }
 
-    public function update(UserRequest $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
         $this->service->update($request->validated(), $id);
         return redirect()->route('admin.users.index')->with('success', 'User updated!');
