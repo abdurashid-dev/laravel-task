@@ -60,4 +60,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public static function search($search)
+    {
+        return empty($search)
+            ? static::query()
+            : static::query()->where('id', 'like', '%' . $search . '%')
+                ->orWhere('name', 'like', '%' . $search . '%')
+                ->orWhere('surname', 'like', '%' . $search . '%')
+                ->orWhere('phone', 'like', '%' . $search . '%')
+                ->orWhere('birthday', 'like', '%' . $search . '%')
+                ->orWhere('address', 'like', '%' . $search . '%');;
+    }
 }

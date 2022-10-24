@@ -18,6 +18,6 @@ class RoleController extends Controller
     public function index()
     {
         $roles = $this->service->index();
-        dd($roles);
+        return view('admin.roles.index');
     }
 }
