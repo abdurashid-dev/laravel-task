@@ -23,7 +23,13 @@ class PermissionService
 
     public function update(array $data, $id)
     {
-        $role = $this->edit($id);
-        $role->update($data);
+        $permission = $this->edit($id);
+        $permission->update($data);
+    }
+
+    public function destroy($id)
+    {
+        $permission = $this->edit($id);
+        $permission->delete();
     }
 }

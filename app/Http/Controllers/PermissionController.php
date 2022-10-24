@@ -37,4 +37,10 @@ class PermissionController extends Controller
         $this->service->update($request->validated(), $id);
         return redirect()->route('admin.permissions.index')->with('success', 'Permission Edited!');
     }
+
+    public function destroy($id)
+    {
+        $this->service->destroy($id);
+        return redirect()->route('admin.permissions.index')->with('success', 'Permission deleted!');
+    }
 }
