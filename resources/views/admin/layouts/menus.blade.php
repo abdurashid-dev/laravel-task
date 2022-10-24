@@ -24,7 +24,7 @@
         </li>
         <li class="nav-item">
             <a href="{{route('admin.roles.index')}}"
-               class="nav-link {{(request()->routeIs('admin.roles.index')) ? 'active':''}}">
+               class="nav-link {{(request()->is('admin/roles*') ) ? 'active':''}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Roles</p>
             </a>

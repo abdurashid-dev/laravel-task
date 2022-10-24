@@ -27,12 +27,6 @@ class RoleController extends Controller
         return redirect()->route('admin.roles.index')->with('success', 'New role added!');
     }
 
-    public function destroy($id)
-    {
-        $this->service->destroy($id);
-        return redirect()->route('admin.roles.index')->with('success', 'Role deleted!');
-    }
-
     public function edit($id)
     {
         $role = $this->service->edit($id);
@@ -43,5 +37,11 @@ class RoleController extends Controller
     {
         $this->service->update($request->validated(), $id);
         return redirect()->route('admin.roles.index')->with('success', 'Role updated!');
+    }
+
+    public function destroy($id)
+    {
+        $this->service->destroy($id);
+        return redirect()->route('admin.roles.index')->with('success', 'Role deleted!');
     }
 }
