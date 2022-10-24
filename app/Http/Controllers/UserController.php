@@ -31,8 +31,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $user = $this->service->create();
-        return view('admin.users.create', compact('user'));
+        [$user, $roles] = $this->service->create();
+        return view('admin.users.create', compact('user', 'roles'));
     }
 
     public function store(UserStoreRequest $request)

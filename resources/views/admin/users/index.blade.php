@@ -25,7 +25,6 @@
                         <td class="w-25">{{$user->name}}</td>
                         <td class="w-25">{{$user->email}}</td>
                         <td class="w-50">
-                            <a href="#" class="btn btn-primary">Assign role</a>
                             <a href="{{route('admin.users.change-password', $user)}}" class="btn btn-warning">Change
                                 password</a>
                             <a href="{{route('admin.users.edit', $user)}}" class="btn btn-success">Edit</a>
@@ -51,4 +50,5 @@
 @endsection
 @section('scripts')
     @include('partials.sweet-alert')
+
 @endsection
