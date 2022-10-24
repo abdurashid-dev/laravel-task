@@ -6,10 +6,10 @@
     <x-header title="Users" icon="fas fa-users"/>
     <div class="card">
         <div class="card-header">
-            <button class="btn btn-primary float-right" data-bs-toggle="modal" data-bs-target="#createRoleModal"><i
-                    class="fas fa-plus"></i>
+            <a href="{{route('admin.users.create')}}" class="btn btn-primary float-right">
+                <i class="fas fa-plus"></i>
                 Add new
-            </button>
+            </a>
         </div>
         <div class="card-body table-responsive">
             <table class="table table-bordered">
