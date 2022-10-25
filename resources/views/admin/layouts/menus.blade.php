@@ -63,3 +63,11 @@
         </p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.students.index')}}" class="nav-link @if (request()->is('admin/students*')) active @endif">
+        <i class="nav-icon fas fa-user-graduate"></i>
+        <p>
+            Students
+        </p>
+    </a>
+</li>
