@@ -2,7 +2,7 @@
 
 namespace App\Http\Services;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AbstractService
 {
@@ -18,8 +18,47 @@ class AbstractService
         return $this->model::findOrFail($id);
     }
 
-    public function store(Request $request)
+    public function store(array $data)
     {
+        //get fields
+        $fields = $this->getFields();
+        $rules = [];
+        foreach ($fields as $field) {
+            $rules[$field->getName()] = $field->getRules();
+        }
+        $validator = Validator::make($data, $rules);
+        $data = $validator->validated();
+        $object = new $this->model;
+        foreach ($fields as $field) {
+            $field->fill($object, $data);
+        }
+        $object->save();
+    }
 
+    public function update(array $data, $id)
+    {
+        $fields = $this->getFields();
+        $rules = [];
+        foreach ($fields as $field) {
+            $rules[$field->getName()] = $field->getRules();
+        }
+        $validator = Validator::make($data, $rules);
+        $data = $validator->validated();
+        $item = $this->show($id);
+        foreach ($fields as $field) {
+            $field->fill($item, $data);
+        }
+        $item->save();
+    }
+
+    public function destroy($id)
+    {
+        $item = $this->show($id);
+        $item->delete();
+    }
+
+    public function getFields()
+    {
+        return [];
     }
 }
