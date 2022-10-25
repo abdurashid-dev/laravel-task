@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LessonController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SubjectController;
@@ -60,4 +61,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::resource('/teachers', TeacherController::class);
 //Subjects
     Route::resource('/subjects', SubjectController::class);
+//Lessons
+    Route::resource('/lessons', LessonController::class);
 });
