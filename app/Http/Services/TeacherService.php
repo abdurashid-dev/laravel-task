@@ -18,6 +18,11 @@ class TeacherService extends AbstractService
         ];
     }
 
+    public function show($id)
+    {
+        return Teacher::with('subject')->where('id', $id)->first();
+    }
+
     public function create()
     {
         $teacher = new $this->model;

@@ -13,7 +13,7 @@ class AbstractService
         return $this->model::orderByDesc('created_at')->paginate(10);
     }
 
-    public function show($id)
+    public function getItem($id)
     {
         return $this->model::findOrFail($id);
     }
@@ -44,7 +44,7 @@ class AbstractService
         }
         $validator = Validator::make($data, $rules);
         $data = $validator->validated();
-        $item = $this->show($id);
+        $item = $this->getItem($id);
         foreach ($fields as $field) {
             $field->fill($item, $data);
         }
@@ -53,7 +53,7 @@ class AbstractService
 
     public function destroy($id)
     {
-        $item = $this->show($id);
+        $item = $this->getItem($id);
         $item->delete();
     }
 

@@ -11,8 +11,8 @@ class Teacher extends Model
 
     protected $fillable = ['name', 'subject_id'];
 
-//    public function subject()
-//    {
-//        return $this->hasOne();
-//    }
+    public function subject()
+    {
+        return $this->hasOne(Subject::class);
+    }
 }
