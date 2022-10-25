@@ -39,3 +39,11 @@
         </li>
     </ul>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.teachers.index')}}" class="nav-link @if (request()->is('admin/teachers*')) active @endif">
+        <i class="nav-icon fas fa-users"></i>
+        <p>
+            Teachers
+        </p>
+    </a>
+</li>
