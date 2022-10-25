@@ -23,7 +23,7 @@
                         <td>{{(($lessons->currentpage()-1)*$lessons->perpage()+($loop->index+1))}}</td>
                         <td>{{$lesson->name}}</td>
                         <td class="w-25">
-                            <a href="{{route('admin.lessons.show', $lesson)}}" class="btn btn-warning">Show</a>
+{{--                            <a href="{{route('admin.lessons.show', $lesson)}}" class="btn btn-warning">Show</a>--}}
                             <a href="{{route('admin.lessons.edit', $lesson)}}" class="btn btn-success">Edit</a>
                             <form action="{{route('admin.lessons.destroy', $lesson)}}" class="d-inline-block"
                                   method="POST">
