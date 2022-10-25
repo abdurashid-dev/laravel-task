@@ -29,7 +29,7 @@
                     data-select2-id="15" tabindex="-1" aria-hidden="true">
                 @foreach($roles as $role)
                     <option value="{{$role->id}}"
-                            @if($role->id == $user->id) selected @endif>{{$role->name}}</option>
+                            @if($user->hasRole($role->name)) selected @endif>{{$role->name}}</option>
                 @endforeach
             </select>
         </div>

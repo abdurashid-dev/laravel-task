@@ -31,7 +31,6 @@ class UserController extends Controller
     public function create()
     {
         [$user, $roles] = $this->service->create();
-//        dd($roles[0]['users']);
         return view('admin.users.create', compact('user', 'roles'));
     }
 
@@ -44,7 +43,6 @@ class UserController extends Controller
     public function edit($id)
     {
         [$user, $roles] = $this->service->edit($id);
-        dd($roles->user);
         return view('admin.users.edit', compact('user', 'roles'));
     }
 

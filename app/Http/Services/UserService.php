@@ -32,7 +32,9 @@ class UserService
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
-        $user->assignRole($data['roles']);
+        if (!empty($data['roles'])) {
+            $user->assignRole($data['roles']);
+        }
     }
 
     public function edit($id)
@@ -46,6 +48,11 @@ class UserService
     {
         $user = $this->show($id);
         $user->update($data);
+        if (!empty($data['roles'])) {
+            $user->syncRoles($data['roles']);
+        } else {
+            $user->syncRoles([]);
+        }
     }
 
     public function destroy($id)
