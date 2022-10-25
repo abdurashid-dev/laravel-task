@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <x-headers title="Edit lesson" icon="fas fa-plus" parent="Lessons" parent-route="admin.lessons.index"
-               parent-icon="fas fa-book-reader"/>
+               parent-icon="fas fa-book"/>
     <div class="card">
         <div class="card-header"></div>
         <div class="card-body">

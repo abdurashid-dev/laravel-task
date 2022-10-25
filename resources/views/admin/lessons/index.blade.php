@@ -3,7 +3,7 @@
     Lessons
 @endsection
 @section('content')
-    <x-header title="Lessons" icon="fas fa-book-reader"/>
+    <x-header title="Lessons" icon="fas fa-book"/>
     <div class="card">
         <div class="card-header">
             <a href="{{route('admin.lessons.create')}}" class="btn btn-primary float-right">

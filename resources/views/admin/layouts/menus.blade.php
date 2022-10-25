@@ -55,3 +55,11 @@
         </p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.lessons.index')}}" class="nav-link @if (request()->is('admin/lessons*')) active @endif">
+        <i class="nav-icon fas fa-book"></i>
+        <p>
+            Lessons
+        </p>
+    </a>
+</li>
