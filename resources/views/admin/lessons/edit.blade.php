@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 @section('title')
-    Subjects
+    Lessons
 @endsection
 @section('content')
-    <x-headers title="Edit subject" icon="fas fa-plus" parent="Subjects" parent-route="admin.subjects.index"
+    <x-headers title="Edit lesson" icon="fas fa-plus" parent="Lessons" parent-route="admin.lessons.index"
                parent-icon="fas fa-book-reader"/>
     <div class="card">
         <div class="card-header"></div>
         <div class="card-body">
-            <form action="{{route('admin.subjects.update', $subject)}}" method="POST">
+            <form action="{{route('admin.lessons.update', $lesson)}}" method="POST">
                 @csrf
                 @method('PUT')
-                @include('admin.subjects.form')
+                @include('admin.lessons.form')
             </form>
         </div>
     </div>
