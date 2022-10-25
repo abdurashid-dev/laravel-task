@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -57,4 +58,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(fun
     Route::post('/users/change-password/{user}', [UserController::class, 'updatePassword'])->name('users.update-password');
 //Teacher
     Route::resource('/teachers', TeacherController::class);
+//Subjects
+    Route::resource('/subjects', SubjectController::class);
 });
