@@ -8,9 +8,10 @@
 <div class="mb-3">
     <label for="subjectsSelect">Choose Subject</label>
     <select name="subject_id" id="subjectsSelect" class="form-control">
+        <option value="" selected>Select subject</option>
         @forelse($subjects as $subject)
             <option value="{{$subject->id}}"
-                    @if($subject_id == $teacher->$subject_id) selected @endif>{{$subject->name}}</option>
+                    @if($subject->id == $teacher->subject_id) selected @endif>{{$subject->name}}</option>
         @empty
             <option value="">No subjects found :(</option>
         @endforelse

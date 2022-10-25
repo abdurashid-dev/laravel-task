@@ -19,7 +19,7 @@
                 </tr>
                 <tr>
                     <th>Subject</th>
-                    <td>{{(!is_null($teacher->subject)) ? $teacher->subject->name : 'not found'}}</td>
+                    <td>{{$teacher->subject_id}}</td>
                 </tr>
             </table>
         </div>

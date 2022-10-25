@@ -20,7 +20,7 @@ class TeacherService extends AbstractService
 
     public function show($id)
     {
-        return Teacher::with('subject')->where('id', $id)->first();
+        return Teacher::findOrFail($id);
     }
 
     public function create()
