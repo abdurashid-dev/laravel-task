@@ -47,3 +47,11 @@
         </p>
     </a>
 </li>
+<li class="nav-item">
+    <a href="{{route('admin.subjects.index')}}" class="nav-link @if (request()->is('admin/subjects*')) active @endif">
+        <i class="nav-icon fas fa-book-reader"></i>
+        <p>
+            Subjects
+        </p>
+    </a>
+</li>
