@@ -10,21 +10,7 @@
         <div class="card-body">
             <form action="{{route('admin.teachers.store')}}" method="POST">
                 @csrf
-                <div class="mb-3">
-                    <label for="nameInput">Teacher name</label>
-                    <input type="text" id="nameInput" name="name" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="subjectsSelect">Choose Subject</label>
-                    <select name="subject_id" id="subjectsSelect" class="form-control">
-                        @forelse($subjects as $subject)
-                            <option value="{{$subject->id}}">{{$subject->name}}</option>
-                        @empty
-                            <option disabled>No subjects found :(</option>
-                        @endforelse
-                    </select>
-                </div>
-                <button class="btn btn-primary float-right">Save</button>
+                @include('admin.teachers.form')
             </form>
         </div>
     </div>
