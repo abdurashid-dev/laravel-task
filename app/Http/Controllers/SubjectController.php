@@ -19,6 +19,12 @@ class SubjectController extends Controller
         return view('admin.subjects.index', compact('subjects'));
     }
 
+    public function show($id)
+    {
+        $subject = $this->service->getItem($id);
+        return view('admin.subjects.show', compact('subject'));
+    }
+
     public function create()
     {
         $subject = $this->service->create();

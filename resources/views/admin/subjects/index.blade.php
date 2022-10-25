@@ -3,7 +3,7 @@
     Subjects
 @endsection
 @section('content')
-    <x-header title="Subjects" icon="fas fa-users"/>
+    <x-header title="Subjects" icon="fas fa-book-reader"/>
     <div class="card">
         <div class="card-header">
             <a href="{{route('admin.subjects.create')}}" class="btn btn-primary float-right">
