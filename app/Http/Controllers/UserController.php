@@ -14,6 +14,11 @@ class UserController extends Controller
     public function __construct()
     {
         $this->service = new UserService();
+//        $this->middleware('permission:users-index')->only('index');
+//        $this->middleware('permission:users-create')->only(['create', 'store']);
+//        $this->middleware('permission:users-update')->only(['edit', 'update']);
+//        $this->middleware('permission:users-destroy')->only('destroy');
+//        $this->middleware('permission:users-changePassword')->only(['changePassword', 'updatePassword']);
     }
 
     public function index()

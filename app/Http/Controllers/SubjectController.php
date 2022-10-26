@@ -11,6 +11,10 @@ class SubjectController extends Controller
     public function __construct()
     {
         $this->service = new SubjectService();
+//        $this->middleware('permission:subjects-index')->only('index');
+//        $this->middleware('permission:subjects-create')->only(['create', 'store']);
+//        $this->middleware('permission:subjects-update')->only(['edit', 'update']);
+//        $this->middleware('permission:subjects-destroy')->only('destroy');
     }
 
     public function index()

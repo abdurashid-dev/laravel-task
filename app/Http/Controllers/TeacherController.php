@@ -11,6 +11,10 @@ class TeacherController extends Controller
     public function __construct()
     {
         $this->service = new TeacherService();
+//        $this->middleware('permission:teachers-index')->only('index');
+//        $this->middleware('permission:teachers-create')->only(['create', 'store']);
+//        $this->middleware('permission:teachers-update')->only(['edit', 'update']);
+//        $this->middleware('permission:teachers-destroy')->only('destroy');
     }
 
     public function index()

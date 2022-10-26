@@ -11,6 +11,10 @@ class StudentController extends Controller
     public function __construct()
     {
         $this->service = new StudentService();
+//        $this->middleware('permission:student-index')->only('index');
+//        $this->middleware('permission:student-create')->only(['create', 'store']);
+//        $this->middleware('permission:student-update')->only(['edit', 'update']);
+//        $this->middleware('permission:student-destroy')->only('destroy');
     }
 
     public function index()
